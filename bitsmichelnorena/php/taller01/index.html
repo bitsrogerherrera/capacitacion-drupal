@@ -1,0 +1,181 @@
+<html lang="en">
+<head>
+
+<title>RESUMEN</title>
+</head>
+<body style="background-color:rgb(143, 185, 240);" >
+
+    <div>
+    <h1><center>RESUMEN</center></center></h1>
+    <hr>
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">1.Nombres con sentido</h1>
+
+    <p style="font-family: arial;">
+        Todos los nombres deben ser intencionados y descriptivos.
+        Evita abreviaciones, prefijos, usar secuencias de números en variables y las palabras redundantes<br>
+        (the-, a-, -object, -info, -data). Usa nombres que se puedan buscar
+        (evita variables a, e, l… usar i, j, k solo para bucles cuyo contexto sea muy acotado).<br><br>
+
+        *Nombres de clases: Evitar sufijos Manager o Processor. No deben ser verbos.<br/>
+
+        *Los nombres cuanto más cortos mejor, siempre que sean explícitos y claros.
+
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);"> 2.Funciones</h1>
+    <p style="font-family: arial;">
+        Deben ser reducidas (~20 líneas) y con nombres descriptivos (no importan si son un poco largos).
+        Debemos evitar el anidamiento excesivo (~complejidad ciclomática). Solo deben hacer una cosa.<br><br>
+        si una función hace más de una cosa intentamos describirla en una frase:
+        “PARA (nombredefunción) […]”. Ej: “Para RenderPageWithSetup comprobamos si la página es de prueba
+        y en caso afirmativo añadimos configuración y detalles.<br><br>
+        o deberían tener más de 2 parámetros, 3 ya son muchos y más de 3 una excepción que se debe justificar.
+        Evitar los parámetros de salida pues son confusos, mejor funciones que retornen valor o que se llame
+        a una función de clase del objeto que se cambia. Argumentos booleanos evitarlos,
+        son síntoma de que la función hace al menos 2 cosas, <br>(1 si es true y otra si es false),
+        en este caso mejor hacer 2 funciones, una para cada caso.
+
+    </p>
+    </div>
+
+
+    <div>
+    <h1  style="background-color:rgb(73, 196, 196);">3.Comentarios</h1>
+    <p style="font-family: arial;">
+        Los comentarios solo están justificados cuando no somos capaces de expresarnos con el código.
+        En general, basta con escribir y encapsular todo en una función que se llame
+        como lo que hay en el comentario.<br><br>
+        Los Comentarios incorrectos: Son los Que dejan dudas en la explicación, redundantes, obligatorios en javadoc,
+        de registro de cambios (para ello está el control de código fuente), código comentado y comentarios
+        sobre cosas que no están en el código adyacente.
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">4.Formato</h1>
+    <p style="font-family: arial;">
+
+        El tamaño de los ficheros no debería superar las 200 líneas de media,
+        con un límite máximo en 500.<br><br>
+
+        La distancia vertical entre elementos relacionados debe ser mínima,
+        y como consecuencia, evitar separar elementos relacionados en 2 ficheros distintos<br>
+        (razón por la cual no se deben usar variables protected)<br><br>
+
+        Las variables se deben declarar lo más cerca posible a su uso. Las variables de clase
+        (de instancia) en la parte superior, ya que se usan en toda la clase.<br><br>
+
+        La anchura de las líneas de código, entre 80 y 120 caracteres, no deberíamos hacer scroll
+        horizontal para leer código.<br><br>
+
+        Los espacios en blanco se usan para separar conceptos que queremos remarcar o que están desconexos
+        con sus antecesores y predecesores.<br> Ej: double determinant
+        (double a, double b, double c) { return b*b – 4*a*c; }
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);" >5.Objetos y estructuras de datos</h1>
+    <p style="font-family: arial;">
+        Abstracción de los datos, se debe esconder la implementación de los datos de una clase
+        y generar una interfaz (normalmente mediante métodos) para acceder y establecerlos,
+        siempre escondiendo la implementación concreta.<br><br>
+        Ley de Demeter solo debe invocar funciones de:<br><br>
+        *Sí mismo<br>
+        *Variables locales<br>
+        *Un argumento<br>
+        *Una variable de instancia<br><br>
+        Y no debe invocar funciones de objetos devueltos por llamadas a otras clases
+        (ej:  a.getX().getY().getValue(); ).
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">6.Procesar errores</h1>
+    <p style="font-family: arial;">
+        No usar códigos de error ya que confunden el flujo de ejecución y obligan al invocador a
+        procesarlos inmediatamente.<br><br>
+        En los errores incluir información que nos dé contexto de dónde se ha producido el fallo.<br><br>
+        Al usar APIs de terceros siempre envolver excepciones (patrón facade).<br><br>
+        Crear clases para los casos especiales en lugar de dejar al código cliente procesar el caso excepcional
+        (patrón caso especial, Fowler).
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">7.limites</h1>
+    <p style="font-family: arial;">
+        No es conveniente utilizar clases genéricas del sistema como valores de retorno
+        de una de nuestras API. Normalmente tienen un exceso de funcionalidad que nuestro cliente
+        no necesitará. Además, si la clase genérica cambia (poco probable pero no imposible),
+        tendremos que cambiar el código de todos los clientes. Es mejor encapsular la implementación
+        con la clase genérica en una clase propia que será la que usen los clientes.
+
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">8.Pruebas unitarias</h1>
+    <p style="font-family: arial;">
+        3 leyes de TDD:<br><br>
+
+        No hay que crear código hasta que haya fallado un unit test
+        No hay que crear nunca más de una prueba que falle
+        El código creado debe ser el mínimo para que la prueba pase
+        ~30 segundos en hacer los 3 pasos aprox.<br><br>
+
+        Las pruebas al tener que evolucionar al mismo ritmo que el código,
+        deben ser igualmente mantenibles y respetar las mismas reglas de código limpio.<br><br>
+
+        Las pruebas son la clave del desarrollo ágil, permiten hacer cambios
+        sin temor a romper nada que funcione.<br><br>
+
+        En las pruebas es todavía más importante la legibilidad que en el código de producción.
+        Evitar métodos muy largos con todos los detalles de implementación, es mejor que se lea
+        claramente la estructura Arrange-Act-Assert de las pruebas escondiendo los detalles en métodos.
+    </p>
+    </div>
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">9.Clases</h1>
+    <p style="font-family: arial;">
+        Orden dentro de la clase: Contantes estáticas, variables estáticas, variables de instancia
+        y funciones. De todo ello, primero lo público y después lo privado. <br>
+
+        El tamaño debe ser reducido, debe tener una única responsabilidad, la que indica su nombre.
+        Nombres a evitar son Manager, Processor, Super ya que denotan muchas responsabilidades. <br>
+
+        Single Responsibility Principle, una clase debe tener un único motivo para cambiar.
+    </p>
+    </div>
+
+
+    <div>
+    <h1 style="background-color:rgb(73, 196, 196);">10.Concurrencia</h1>
+    <p style="font-family: arial;">
+        El hecho de separar el qué del cuándo en programación concurrente
+        hace que tengamos que tomar precauciones para no tener problemas.<br><br>
+        Distintos modelos: productor-consumidor, lector-escritor,
+        la cena de los filósofos (condiciones de carrera), …<br>
+        Planificar y probar concienzudamente el código de cierre de un proceso,
+        para evitar bloqueos en nuevos procesos.<br><br>
+        Recomendaciones:<br>
+        *Primero que funcione sin procesos, esto permite identificar los fallos
+        que no tienen que ver con concurrencia<br>
+        *No ignorar los fallos que no se pueden reproducir<br>
+        *Se tienen que poder probar, mejor diseñar con esto en mente<br>
+
+    </p>
+    </div>
+    <hr>
+</body>
+</html>
