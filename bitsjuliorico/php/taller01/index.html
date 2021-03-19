@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean code</title>
+</head>
+
+<body>
+    <h1>Resumen Clean Code</h1>
+    <h3>Nombres con sentido</h3>
+    <p>Se refiere a nombrar las clases, métodos, variables de una manera descriptiva y coherente
+        nombre clases: Categories no
+        <code>$nameAdmin  no $a, $bs</code>
+        variables:
+
+    </p>
+    <h3>Funciones</h3>
+    <p>No deben ser muy extensas(20 líneas) y con nombres descriptivos. También evitar alta complejidad.
+
+    </p>
+    <pre>  function areaTriangulo ($base, $altura){
+        $area = ($base * $altura) / 2;
+        return $area;
+    }</pre>
+    <h3>Comentarios</h3>
+    <p>Solo necesarios si con el nombre del método no describe lo que realiza.</p>
+    <pre>
+      /**
+        * @desc opens a modal window to display a message
+        * @param string $msg - the message to be displayed
+        * @return bool - success or failure
+      */
+      function modalPopup($msg) {
+      ...
+      }</pre>
+    <h3>Formato</h3>
+    <p>-EL tamaño del archivo no debería superar las 500 lineas y un promedio de 200 lineas
+        -varaibles declararlas cerca de donde se van a usar
+        -Anchura de las entre 80 y 120 caracteres
+        -mismo estilo y formato en todo el código
+    </p>
+    <h3>Objetos y estructuras de datos</h3>
+    <p>Solo debe invocar funciones de:
+        Sí mismo
+        Variables locales
+        Un argumento
+        Una variable de instancia</p>
+    <h3>Procesar errores</h3>
+    <p>Se debe incluir detale del error, no devolver null</p>
+    <h3>Limites</h3>
+    <p>para libreria de terceros usar adapter</p>
+    <h3>Pruebas unitarias</h3>
+    <p>Solo probar una cosa en cada test, que el número de asert sea minímo.
+        Que sean indepenientes, 
+        se puedan repetir, 
+        on solo 2 estados (aciertan o fallan), 
+        se realizan antes de crear el código
+    </p>
+    <h3>Clases</h3>
+    <p>Orden de las variables primero publico, despues lo privado
+        - La clase con un único motivo para cambiar
+        - tamaño reducido
+    </p>
+    <pre>
+        class Rectangle
+        {
+            public $topLeft;
+
+            private $backgroundColor;
+    
+        
+            //..
+        }
+    </pre>
+    <h3>Sistemas</h3>
+    <p>Exista una arquitectura, donde sea modular para construir código</p>
+    <h3>Emergencia</h3>
+    <p>Habla de que todo sea testeable y se refactorice, eliminano código duplicado</p>
+    <h3>Concurrencia</h3>
+    <p>Encapsular los datos, protegerlos</p>
+    <h3>Refinamiento sucesivo</h3>
+    <p>Realizar una refactorización constante, ayudandose de los tests</p>
+
+</body>
+
+</html>
