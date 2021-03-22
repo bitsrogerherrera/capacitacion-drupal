@@ -92,6 +92,7 @@ class product implements iproduct{
 /* clase book */
 class book extends product {
     // Declaración de unas variable string protegidas
+    public $book_;
     protected $author,$year,$sheets,$product;
     protected $index = array(
                         array('# Capitulo' => 1, 'Nombre Capitulo'=>'introduccion','paginas'=>5),
@@ -180,17 +181,16 @@ class book extends product {
     public function delete()
     {
     }
-     ## descripcion sobre escrito
+     ## descripcion sobreescrito
      public function description(){
-        $data = [
-            'Descripcion sobreescrito',
-            'autor'=>!empty($this->getAuthor())?$this->getAuthor():'Sin nombre',
-            'index'=>$this->index,
-            'year'=>!empty($this->getYear())?$this->getYear():0,
-            'sheets'=>$this->sheets,
-        ];
-        print_r($data);
-        parent::description();
+        $this->book_ = array(
+            'libro',
+            'autor'=>$this->author,
+            'Año'=>$this->year,
+            'Paginas'=>$this->sheets,
+            'Contenido'=>$this->index
+        );
+        print_r($this->book_);
     }
     ##metodo para agregar capitulos
     public function addChapter($nameChapter,$numSheetsChapter){
@@ -219,20 +219,117 @@ class book extends product {
 
         foreach ($this->index as $item) {
             if($numberChapter == $item['# Capitulo']){
-
                 print_r(array('Capitulo'=>0,'Promedio'=>$item['paginas']/$sheet,'Porcentaje'=>$item['paginas']/$sheet*100));
                 return;
             }
         }
+        ## si no encuentra el capitulo sigue hasta este mensaje
         print_r(array('Capitulo no encontrado'=>0));
     }
 }
 
+/* clase automation */
+class automation extends book{
+    private $books;
+    private $Arraybooks =[];
+
+    /* constructor */
+    public function __construct() {
+
+        $get_arguments       = func_get_args();
+        $number_of_arguments = func_num_args();
+
+        $this->books = file_get_contents("json/books.json");
+        $this->books = json_decode($this->books);
+        $this->addBooksbyJson($this->books);
+        ## validar inicializacion
+        if($number_of_arguments==1){
+            if($get_arguments[0]){
+                $this->Arraybooks = [];
+                print_r(array('Inicializar  por Constructor'));
+                print_r($this->Arraybooks);
+            }else{
+                $this->setbook();
+                print_r(array('Inicializar  por metodos'));
+                print_r($this->getbook());
+            }
+        }
+    }
+    /* crear libros */
+    public function addBooksbyJson($book){
+        $count = 0;
+        foreach ($book as $item) {
+            $count++;
+            $this->addBook($item->Autor,$item->Año,$item->Paginas,$item->Contenido,$count);
+        }
+    }
+
+    ##metodo para añadir libros
+    public function addBook($autor,$year,$sheets,$index,$count){
+        $data = array(
+            'libro'=>$count,
+            'autor'=>$autor,
+            'Año'=>$year,
+            'Paginas'=>$sheets,
+            'Contenido'=>$index
+        );
+        array_push($this->Arraybooks,$data);
+    }
+    ## set y get book
+    public function setbook(){
+        $this->Arraybooks = [];
+    }
+    public function getbook(){
+        $data = $this->Arraybooks;
+        return  $data;
+    }
+    #metodo magico
+    public function __get($index){
+        print_r($this->Arraybooks[$index]);
+    }
+    #metodo para usar el metodo magico
+    public function methodByindex(){
+        foreach ($this->Arraybooks as $key => $value) {
+            if ($key%2==0){
+                $data = $this->getbook();
+                print_r(array('metodo normal'));
+                print_r($data[$key]);
+            }else{
+                print_r(array('metodo magico'));
+                $this->__get($key);
+            }
+        }
+    }
+
+    ## metodo para mostrar capitulos por libro
+    public function ChapterbyBook(){
+        $Chapters = [];
+        foreach ($this->Arraybooks as $key => $book) {
+            $value = 0;
+            foreach ($book['Contenido'] as $chapters) {
+                $value++;
+            }
+            array_push($Chapters,array('Libro'=>$key+1,'capitulos'=>$value));
+        }
+        print_r($Chapters);
+    }
+
+    ## metodo para tener 3 posiciones al azar de cada libro
+    public function randomChapters(){
+        $ArrayChapterRandom =[];
+        foreach ($this->Arraybooks as $item) {
+             array_push($ArrayChapterRandom,array_rand($item['Contenido'],3));
+        }
+        print_r($ArrayChapterRandom);
+    }
+}
+
+############## Comandos por consola ############################
 ##  diseñado para enviar 0 o 2
 ##  variables eb caso de poner una sola variable si
 ##  es numerico quedara como precio pero si es texto quedara como nombre del producto
 
-$product = new product('Compressor 10AAX',123456);
+//$product = new product('Compressor 10AAX',123456);
 ## descripcion
 //$product->description();
 ## ejemplo sin parametros
@@ -243,7 +340,7 @@ $product = new product('Compressor 10AAX',123456);
 ##  variables en caso de poner una sola variable si
 ##  es numerico quedara como precio pero si es texto quedara como nombre del producto
 
-$book = new book('Camilo Leon','2010');
+//$book = new book('Camilo Leon','2010');
 ## descripcion
 //$book->description();
 ## ejemplo sin parametros
@@ -257,4 +354,27 @@ $book = new book('Camilo Leon','2010');
 //$book->getChapterName(4);
 
 ## calcular promedio de paginas por capitulo
-$book->averageSheetsPerChapter(2);
+//$book->averageSheetsPerChapter(2);
+
+## llamar clase automation
+//$auto = new automation();
+// $auto->getbook();
+## inicializar por constructor
+//$auto = new automation(true);
+
+## inicializar por metodos
+//$auto = new automation(false);
+
+## metodos magico o metodo get
+//$auto = new automation();
+//$auto->methodByindex();
+
+## metodo para mostrar los capitulos de cada libro
+//$auto = new automation();
+//$auto->ChapterbyBook();
+
+
+## metodo para mostrar 3 capitulos al azar de cada libro
+$auto = new automation();
+$auto->randomChapters();
+

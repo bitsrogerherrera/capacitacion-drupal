@@ -1,0 +1,29 @@
+[
+    {
+    "Autor":"carlos leon",
+    "Año":"2021",
+    "Paginas":150,
+    "Contenido":{
+        "0":{"# Capitulo" : 1,"Nombre Capitulo":"introduccion","paginas":50},
+        "1":{"# Capitulo" : 2,"Nombre Capitulo":"caseria","paginas":50},
+        "2":{"# Capitulo" : 3,"Nombre Capitulo":"epilogo","paginas":50}
+        }
+    },
+    {
+    "Autor":"tatiana",
+    "Año":"2020",
+    "Paginas":0,
+    "Contenido":{}
+    },
+    {
+    "Autor":"ximena",
+    "Año":"2019",
+    "Paginas":200,
+    "Contenido":{
+        "0":{"# Capitulo" : 1,"Nombre Capitulo":"introduccion","paginas":50},
+        "1":{"# Capitulo" : 2,"Nombre Capitulo":"buscando","paginas":50},
+        "2":{"# Capitulo" : 3,"Nombre Capitulo":"salida","paginas":50},
+        "3":{"# Capitulo" : 3,"Nombre Capitulo":"final esperado","paginas":50}
+        }
+    }
+]
