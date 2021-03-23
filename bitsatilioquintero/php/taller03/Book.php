@@ -26,13 +26,15 @@ class Book extends Product implements \JsonSerializable
 
     public function __destruct()
     {
-        print("Destroying Book: " . $this->name . "\n");
+        print("Destroying Book: " . $this->name . "<br>");
     }
 
     public function description()
     {
+        $text = "The book name is %s, the author is %s, published in %s, with a page count of %d " .
+        "and their price is %d <br>";
         printf(
-            "The book name is %s, the author is %s, published in %s, with a page count of %d and their price is %d \n",
+            $text,
             $this->name,
             $this->author,
             $this->year,
@@ -57,13 +59,6 @@ class Book extends Product implements \JsonSerializable
 
     public function getChapterName($indexToSearch)
     {
-        /*$i = 0;
-        foreach ($this->index as $i => $value) {
-            if ($i === $indexToSearch) {
-                return $value;
-            }
-            $i++;
-        }*/
         return $this->index[$indexToSearch];
     }
 
@@ -136,6 +131,6 @@ class Book extends Product implements \JsonSerializable
     {
         return "The book name is " . $this->name . " the author is " . $this->author .
         ", published in " . $this->year . ", with a page count of " . $this->sheets .
-        " and their price is " . $this->price . " \n";
+        " and their price is " . $this->price . "<br>";
     }
 }
