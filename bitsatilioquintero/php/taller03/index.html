@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <title>Compra Libros!</title>
+  </head>
+  <body class="h-100 d-flex text-center">
+        <div class="container">
+            <form action="Main.php" method="get">
+                <div class="row my-3 col-3">
+                    <select name="constructor" class="form-select" aria-label="Default select example">
+                        <option value="-1" selected>Seleccione</option>
+                        <option value="1">Inicializar usando constructor</option>
+                        <option value="2">Inicializar usando setters</option>
+                    </select>
+                </div>
+                <div class="row mb-3 col-3">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+  </body>
+</html>
