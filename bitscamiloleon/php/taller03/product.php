@@ -316,11 +316,51 @@ class automation extends book{
 
     ## metodo para tener 3 posiciones al azar de cada libro
     public function randomChapters(){
-        $ArrayChapterRandom =[];
-        foreach ($this->Arraybooks as $item) {
-             array_push($ArrayChapterRandom,array_rand($item['Contenido'],3));
+        foreach ($this->Arraybooks as $index => $book) {
+            $ArrayChapterRandom =[];
+            print_r('############################################');
+            foreach ($book['Contenido'] as $key => $value) {
+                array_push($ArrayChapterRandom,$key);
+            }
+            if(count($ArrayChapterRandom)>0){
+                $random = array_rand($ArrayChapterRandom,3);
+                ### imprimir los 3 capitulos random
+                foreach ($random as $value) {
+                    print_r(array('libro'=>$index+1));
+                    print_r(array('capitulo'=>$value+1,'contenido'=>$book['Contenido']->$value));
+                }
+            }else{
+                print_r(array('libro'=>$index+1));
+                print_r(array('Sin capitulos'));
+            }
+            print_r('############################################');
         }
-        print_r($ArrayChapterRandom);
+    }
+
+    ##paginas por capitulo
+    public function SheetsByChapter(){
+        foreach ($this->Arraybooks as $key => $value) {
+            print_r('############################################');
+            print_r(array('libro'=>$key+1));
+            foreach ($value['Contenido'] as $cap => $value) {
+                print_r(array('capitulo'=>$cap+1,'paginas'=>$value->paginas));
+            }
+            print_r('############################################');
+        }
+    }
+
+    ## convertir Json cada libro
+    public function JsonByBook(){
+        foreach ($this->Arraybooks as $key => $value) {
+            print_r(array('############################################'));
+            print_r(json_encode($value));
+            print_r(array('############################################'));
+        }
+    }
+
+    ## destruir libros
+    public function deleteAll(){
+        return $this->Arraybooks = [];
     }
 }
 
@@ -375,6 +415,21 @@ class automation extends book{
 
 
 ## metodo para mostrar 3 capitulos al azar de cada libro
-$auto = new automation();
-$auto->randomChapters();
+//$auto = new automation();
+//$auto->randomChapters();
 
+
+## metodo para mostrar las paginas por capitulo
+//$auto = new automation();
+//$auto->SheetsByChapter();
+
+
+## json de cada libro
+//$auto = new automation();
+//$auto->JsonByBook();
+
+
+## destruir libros
+/* $auto = new automation();
+$response = array('libros destruidos','libros'=>$auto->deleteAll());
+print_r($response); */
