@@ -1,0 +1,33 @@
+[
+	{
+		"book": {
+				"author": "Pedro Hernandez",
+				"year": 1985,
+				"chapters": {
+					"capitulo 1": 45,
+					"capitulo 2": 60,
+					"capitulo 3": 10,
+					"capitulo 4": 10
+				}
+		}
+	},
+	{
+		"book": {
+			"author": "Maria Robles",
+			"year": 2003,
+			"chapters": {
+				"capitulo 1": 30,
+				"capitulo 2": 25,
+				"capitulo 3": 40,
+				"capitulo 4": 23,
+				"capitulo 5": 23
+			}
+		}
+	},
+	{
+		"book": {
+			"author": "Martin Rodriguez",
+			"year": 1970
+		}
+	}
+]
