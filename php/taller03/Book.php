@@ -4,10 +4,6 @@ namespace Capacitacion\Php;
 
 require_once "Product.php";
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 class Book extends Product{
 
 	protected $author;
@@ -21,7 +17,7 @@ class Book extends Product{
 	}
 
 	public function __destruct() {
-		echo '<br/><br/> Book Eliminado.';
+		echo '<br/><br/> Book Eliminado.</br></br>';
 	}
 
 	public function getAuthor(){
@@ -37,7 +33,8 @@ class Book extends Product{
 	}
 
 	public function getSheets(){
-		return $this->sheets;
+		echo "# de paginas del libro: " . array_sum($this->sheets);
+		$this->sheets = [];
 	}
 
 	public function setAuthor($author){
@@ -61,8 +58,7 @@ class Book extends Product{
     $description = "<h1>Las caracteristicas del libro son:</h1>";
 		$description .= "Author: " . $this->getAuthor();
 		$description .= "<br/> Year: " . $this->getYear();
-		$description .= "<br/> Sheets: " . $this->getSheets();
-		parent::description(); //llamando en forma recursiva al mísmo método.
+		//parent::description(); //llamando en forma recursiva al mísmo método.
 		
 		echo $description;
   }
@@ -70,12 +66,13 @@ class Book extends Product{
 	public function addChapter($nameChapter, $sheetsChapter){
 		$info = array_push($this->index, $nameChapter);
 		$info = array_push($this->sheets, $sheetsChapter);
-
+		
 		return $info;
 	}
 
 	public function getChapters(){
 		echo "# de capitulos: " . count($this->index) . "</br>";
+		$this->index = [];
 	}
 
 	public function getChapterName($numberChapter){
@@ -108,9 +105,9 @@ $book = new Book();
 
 //var_dump($book->getAuthor());
 //$book->description();
-$book->addChapter("capitulo 1", 25);
+/*$book->addChapter("capitulo 1", 25);
 $book->addChapter("capitulo 3", 35);
 $book->addChapter("capitulo 2", 12);
 $book->getChapters();
 $book->getChapterName(1);
-$book->averageSheetsPerChapter();
+$book->averageSheetsPerChapter();*/
