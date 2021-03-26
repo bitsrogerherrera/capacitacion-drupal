@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Guia clean code!</title>
+  </head>
+  <body class="h-100 d-flex text-center">
+      <div class="container">
+        <div class="row"><h1>Resumen buenas practicas clean code</h1></div>
+        <div class="row text-start">
+          <div class="col-3">
+          <ul class="list-group">
+            <li class="list-group-item disabled" aria-disabled="true">Indice</li>
+            <li><a class="list-group-item list-group-item-action" href="#item1">Nombres con sentido</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item2">Funciones</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item3">Comentarios</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item4">Formato</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item5">Procesar Errores</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item6">Límites</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item7">Pruebas Unitarias</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item8">Clases</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item9">Sistemas</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#item10">Concurrencia</a></li>
+          </ul>
+          </div>
+        </div>
+        <div class="row" style="padding-top: 4em;">
+          <div class="col-10">
+          <ul class="text-start lh-sm">
+            <li>
+              <div>
+                <p id="item1" class="text-break">Nombres con sentido: Los nombres de los elementos de nuestro código, ya sea clases, variables, funciones, etc deben tener un nombre con sentido para darle legibilidad a las fuentes de nuestro programa.
+                <br>
+                No es lo mismo decir:</p>
+                  <pre>$players = readline('Enter the number of players: ');</pre>
+                <p>Que:</p>
+                   <pre>$numberPlayersString = readline('Enter the number of players: ');</pre>
+                <p class="text-break">En el segundo caso, no solo se añade un nombre que describe lo que se obtiene de la función sino que además se indica el tipo con que se recibe esa entrada del usuario.</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <p id="item2" class="text-break">Funciones: Las funciones deben ser cortas por lo general, con nombres significativos, recibir la menor cantidad de parámetros  y encargarse de una sola tarea. Ejemplo:</p>
+                <pre>
+                  function getPositiveNumberFromString($value)
+                  {
+                    if (preg_match("/^\d+$/", $value)) {
+                      $auz = (int) $value;
+                      if ($auz < 1) {
+                          throw new Exception('Invalid number.');
+                      } else {
+                          return $auz;
+                      }
+                    } else {
+                      throw new Exception('Invalid number.');
+                    }
+                  }
+                </pre>
+              </div>
+            </li>
+            <li>
+              <p id="item3" class="text-break">Comentarios: estos deben ser útiles e informativos, mas que describir lo que hace el código se trata de expresar la intención y el por que de las decisiones. También se debe usar al describir apis.</p>
+              <pre>
+                /**
+                * Get a decimal, greater than zero number from a string
+                *
+                * @param string $value
+                * @return int
+                * @throws Exception If the string cannot be parsed
+                */
+               function getPositiveNumberFromString($value)
+               {
+                   if (preg_match("/^\d+$/", $value)) {
+                       $auz = (int) $value;
+                       if ($auz < 1) {
+                           throw new Exception('Invalid number.');
+                       } else {
+                           return $auz;
+                       }
+                   } else {
+                       throw new Exception('Invalid number.');
+                   }
+               }</pre>
+            </li>
+            <li>
+              <p id="item4" class="text-break">Formato: Las clases deben tener un cierto patrón que ayude a facilitar su lectura comenzando por que estas deben tener un nombre descriptivo, luego deben ordenar sus propiedades al principio del código y luego deben dar pasos a los métodos públicos que encapsulan la funcionalidad principal.
+              <br> Las clases también deben tener una longitud máxima de caracteres por línea, generalmente no más de 120. Se deben respetar las sangrías del código, usar lineas en blanco para separar bloques de código en una función y la longitud del archivo no debería mucho mayor de 200 lineas.
+              <br>Ejemplo usando una clase entidad:</p>
+              <pre>
+
+                namespace App\Entity;
+
+                use Doctrine\ORM\Mapping as ORM;
+
+                /**
+                * Product
+                *
+                * @ORM\Table(name="Producto")
+                * @ORM\Entity
+                */
+                class Product
+                {
+                    /**
+                    * @var string
+                    *
+                    * @ORM\Column(name="SKU", type="string", length=10, nullable=false)
+                    * @ORM\Id
+                    * @ORM\GeneratedValue(strategy="NONE")
+                    */
+                    private $sku;
+
+                    /**
+                    * @var string
+                    *
+                    * @ORM\Column(name="Nombre", type="string", length=100, nullable=false)
+                    */
+                    private $nombre;
+
+                    /**
+                    * @var string|null
+                    *
+                    * @ORM\Column(name="Descripcion", type="string", length=250, nullable=true)
+                    */
+                    private $descripcion;
+
+                    /**
+                    * @var float
+                    *
+                    * @ORM\Column(name="Precio", type="float", precision=10, scale=0, nullable=false)
+                    */
+                    private $precio;
+
+                    /**
+                    * @var float
+                    *
+                    * @ORM\Column(name="IVA", type="float", precision=10, scale=0, nullable=false)
+                    */
+                    private $iva;
+
+                    /**
+                    * @var string|null
+                    *
+                    * @ORM\Column(name="Foto", type="blob", length=65535, nullable=true)
+                    */
+                    private $foto;
+
+                    /**
+                    * @var string
+                    *
+                    * @ORM\Column(name="Estado", type="string", length=1, nullable=false, options={"fixed"=true})
+                    */
+                    private $estado;
+
+                    public function getSku(): ?string
+                    {
+                      return $this->sku;
+                    }
+
+                    public function setSku(string $sku) : void
+                    {
+                      $this->sku = $sku;
+                    }
+
+                    public function getNombre(): ?string
+                    {
+                      return $this->nombre;
+                    }
+
+                    public function setNombre(string $nombre): self
+                    {
+                        $this->nombre = $nombre;
+
+                        return $this;
+                    }
+
+                    public function getDescripcion(): ?string
+                    {
+                        return $this->descripcion;
+                    }
+
+                    public function setDescripcion(?string $descripcion): self
+                    {
+                        $this->descripcion = $descripcion;
+
+                        return $this;
+                    }
+
+                    public function getPrecio(): ?float
+                    {
+                        return $this->precio;
+                    }
+
+                    public function setPrecio(float $precio): self
+                    {
+                        $this->precio = $precio;
+
+                        return $this;
+                    }
+
+                    public function getIva(): ?float
+                    {
+                        return $this->iva;
+                    }
+
+                    public function setIva(float $iva): self
+                    {
+                        $this->iva = $iva;
+
+                        return $this;
+                    }
+
+                    public function getFoto()
+                    {
+                        return $this->foto;
+                    }
+
+                    public function setFoto($foto): self
+                    {
+                        $this->foto = $foto;
+
+                        return $this;
+                    }
+
+                    public function getEstado(): ?string
+                    {
+                        return $this->estado;
+                    }
+
+                    public function setEstado(string $estado): self
+                    {
+                        $this->estado = $estado;
+
+                        return $this;
+                    }
+                }
+              </pre>
+            </li>
+            <li>
+              <p id="item5" class="text-break">Procesar Errores: se recomienda que se lancen excepciones que códigos de error personalizados, ya que estos requieren un mayor procesamiento  por parte de otros componentes del programa. Esto podría dar como consecuencia que en esas otras partes se olvide procesar el código de esa excepción correctamente.
+              <br>Otro punto importantes es que al lanzar la excepción esta debe ser lo suficientemente especifica para poder identificar el tipo de error y donde ocurre. También se recomienda que las excepciones de bibliotecas de terceros sean envueltas por excepciones propias o genéricas para facilitar la portabilidad y evitar más dependencias del código de terceros.
+              <br>No se recomienda nunca usar nulo como parámetro o tipo de dato de retorno, en todo caso es preferible crear tipos personalizados y manejarlos con clases nuevas.
+              <br>Ejemplo usando una función del framework Symfony: </p>
+              <pre>
+                public function show(string $sku) : Response
+                {
+                  $repository = $this->getDoctrine()->getRepository(Product::class);
+                  $product = $repository->find($sku);
+
+                  if (!$product) {
+                    throw $this->createNotFoundException(
+                        'No product found for sku ' . $sku
+                    );
+                  }
+
+                  return $this->render('product/show.html.twig', [
+                    'product' => $product,
+                  ]);
+                }
+              </pre>
+            </li>
+            <li>
+              <p id="item6" class="text-break">Límites: Siempre es conveniente al desarrollar un API devolver un tipo de valor personalizado en vez de usar uno que usa el sistema o una biblioteca de terceros, ya que así nos aseguramos de enviar la información necesaria y nuestra API no depende de un código que no sea nuestro ante cualquier eventualidad.</p>
+            </li>
+            <li>
+              <p id="item7" class="text-break">Pruebas Unitarias. Las pruebas unitarias deben ser una parte obligatoria de nuestro código, estas deben incluso comenzar a escribirse antes del mismo código.   Estas pruebas deben ser fáciles de ejecutarse cuando se necesiten, y rápidas.
+              <br>Las pruebas no deben depender del entorno (red/base de datos), cada prueba debe evaluar una sola funcionalidad, ser independiente de las demás pruebas y estas deben crearse de acuerdo vaya creciendo nuestro código.</p>
+            </li>
+            <li>
+              <p id="item8" class="text-break">Clases: estas se deben organizar colocando primero las constantes, luego variables y por ultimo funciones, siempre lo estático de primero, así como primero los elementos públicos y después los privados. También las clases deben responder a ciertos principios:
+              <br>Single Responsibility Principle: una clase debe tener que ocuparse de una única funcionalidad, ya que mientras mas funcionalidades se añade a una clase mas razones tendremos para modificarla y eso no es lo deseado.
+              <br>Open/Closed Principle: Las clases mas que modificarse se debe buscar extenderlas para añadir nuevas funcionalidades.
+              <br>Dependency Inversion Principle (DIP): Básicamente las clases mas generales no deben depender de los detalles de las clases mas pequeñas sino que todos esos detalles deben estar ocultos tras abstracciones. También estas abstracciones no deben depender de detalles de las clases, sino que esos detalles están dentro de las implementaciones.
+              <br>Además esta el problema de la cohesión que mientras mas variables de instancias sean necesarias menos integrado estará nuestro código, en este caso lo mejor es dividir en subclases.</p>
+            </li>
+            <li>
+              <p id="item9" class="text-break">Sistemas: los sistemas no pueden esperar ser controlados por una sola persona, por eso es necesario poder dividir el código en módulos agrupados de acuerdo a la responsabilidades de cada modulo. Para eso existen patrones como Inyección de Dependencias y Abstract Factory para mantener la integración de cada modulo. Esta separación es importante ya que permite que el código pueda crecer de manera armoniosa.</p>
+            </li>
+            <li>
+              <p id="item10" class="text-break">Concurrencia: para ayudar a manejar la concurrencia se recomienda seguir consejos como aplicar el Single Responsibility Principle, para hacer la menor cantidad de cambios posibles y que las clases hagan solo lo mínimo requerido. La encapsulación de datos y usar tipos de datos que soporten concurrencia, para evitar data corrupta.
+              <br>También se debe evitar la dependencia entre los hilos y minimizar el intercambio de información entre ellos. Igualmente se deben usar las clases especificas del lenguaje para obtener los mejores resultados así como las estrategias de ejecución concurrentes más adecuadas para el caso.</p>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </div>
+  </body>
+</html>
