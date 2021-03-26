@@ -1,0 +1,418 @@
+<!doctype html>
+	<html lang="es">
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+			<title>Resumen Code Clean</title>
+			<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+			<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="assets/style.css">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Vertical navbar -->
+	<div class="vertical-nav bg-dark" id="sidebar">
+		<div class="py-4 px-3 mb-4 bg-dark">
+			<div class="media-body">
+				<h4 class="font-weight-white text-muted mb-0">Code Clean</h4>
+				<p class="font-weight-grey text-muted mb-0">By Robert C. Martin</p>
+			</div>
+		</div>
+
+		<p class="text-white font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menú</p>
+
+		<ul class="nav flex-column bg-dark mb-0">
+			<li class="nav-item">
+				<a href="#uno" data-ancla="uno" class="nav-link text-light bg-dark">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 1. Introducción
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#dos" data-ancla="dos"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 2. Nombres con sentido
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#tres" data-ancla="tres"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 3. Funciones
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#cuatro" data-ancla="cuatro"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 4. Comentarios
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#cinco" data-ancla="cinco"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 5. Formato
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#seis" data-ancla="seis"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 6. Objetos y estructura de datos
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#siete" data-ancla="siete"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 7. Procesa errores
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#ocho" data-ancla="ocho"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 8. Límites
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#nueve" data-ancla="nueve"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 9. Pruebas unitarias
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#diez" data-ancla="diez"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 10. Clases
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#once" data-ancla="once"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 11. Sistemas
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#doce" data-ancla="doce"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 12. Emergencia
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#trece" data-ancla="trece"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 13. Concurrencia
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#catorce" data-ancla="catorce"  class="nav-link text-light ">
+					<i class="fa fa-th-large mr-3 text-primary fa-fw"></i> 14. Refinamiento sucesivo
+				</a>
+			</li>
+		</ul>
+	</div>
+<!-- End vertical navbar -->
+
+<!-- Page content holder -->
+<div class="page-content p-5" id="content">
+	<!-- Demo content -->
+	<h1 class="display-4 "><span class="font-italic">Code Clean: Robert C. Martin</span></h1>
+	<p class="lead mb-0">Resumen sobre las practicas que todo buen programador debe aprender para generar código de forma correcta.</p>
+
+	<div class="separator"></div>
+
+	<div class="row">
+		<div class="col-lg-12 my-4">
+			<a name="uno" id="uno"><h2>1. Introducción</h2></a>
+			<p class="lead" style="text-align: justify;">La responsabilidad del código limpio es 100% de los programadores, su labor es defenderlo y negarse a hacer código incorrecto (¿dejaría un médico que
+				le pidieran que no se lavara las manos antes de una operación?). El código limpio es la única alternativa para avanzar.
+				<br /><br />
+				El código limpio se caracteriza por ser elegante, eficaz, legible, mínimo, hacer solo una cosa bien de una única manera y tener pruebas unitarias. Metáfora de las
+				ventanas rotas, el código incorrecto es el principio del desastre. Leemos 10:1 más código del que escribimos, no podremos escribir código si el de alrededor es ilegible.
+				Regla del Boy Scout, dejar el código más limpio de lo que me lo encontré.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="dos" id="dos"><h2>2. Nombres con sentido</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Todos los nombres deben ser intencionados y descriptivos. Evita abreviaciones, prefijos, usar secuencias de números en variables y las palabras redundantes (the-, a-, -object, -info, -data).
+				Usa nombres que se puedan buscar (evita variables a, e, l… usar i, j, k solo para bucles cuyo contexto sea muy acotado).
+
+				<ul>
+					<li>Es mejor usar un código en la implementación (que será privada y usada menos veces) que la interfaz => IShapeFactory, ShapeFactory —> ShapeFactory, ShapeFactoryImp.</li>
+					<li>Nombres de clases: Evitar sufijos Manager o Processor. No deben ser verbos.</li>
+					<li>Nombres de métodos: Utiliza verbos. Usa get y set para métodos de acceso e is para booleanos. Usa métodos estáticos con nombres con el tipo de argumento en lugar de sobrecargar
+							constructores (new Complex(23.0) –> Complex.FromRealNumber(23.0))</li>
+					<li>No usar juegos de palabras, chistes o sutilezas. Intentar usar siempre las mismas palabras para lo mismo (get, fetch, retrieve?). No usar una misma palabra para cosas
+							distintas (add es sum o insert?).</li>
+					<li>Usa nombres técnicos cuando la intención sea técnica (Factory, Visitor, Facade, …) y nombres de dominio para conceptos de dominio.</li>
+					<li>Añade contexto a las variables, por ejemplo, agrupándolas en clases.</li>
+					<li>Los nombres cuanto más cortos mejor, siempre que sean explícitos y claros.</li>
+				</ul>
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="tres" id="tres"><h2>3. Funciones</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Deben ser reducidas (~20 líneas) y con nombres descriptivos (no importan si son un poco largos). Debemos evitar el anidamiento excesivo (~complejidad ciclomática).
+				Solo deben hacer una cosa. Para adivinar si una función hace más de una cosa intentamos describirla en una frase: “PARA (nombredefunción) […]”. Ej: “Para RenderPageWithSetup
+				comprobamos si la página es de prueba y en caso afirmativo añadimos configuración y detalles. En cualquier caso, renderizamos en HTML”. Todo el contenido de una función debería
+				estar al mismo nivel de abstracción. De igual forma, el siguiente nivel de abstracción debería estar en la función que sigue. De esta forma una clase se puede leer
+				secuencialmente de arriba hacia abajo.
+
+				<ul>
+					<li>Evitar instrucciones switch en funciones escondiéndolas en clases abstractas (patrón Factory+strategy).</li>
+					<li>No deberían tener más de 2 parámetros, 3 ya son muchos y más de 3 una excepción que se debe justificar. Evitar los parámetros de salida pues son confusos, mejor funciones
+							que retornen valor o que se llame a una función de clase del objeto que se cambia. Argumentos booleanos evitarlos, son síntoma de que la función hace al menos 2 cosas
+							(1 si es true y otra si es false), en este caso mejor hacer 2 funciones, una para cada caso.</li>
+					<li>Funciones con 2 argumentos son válidas si los 2 argumentos están relacionados naturalmente, si no tienen nada que ver resultará confuso. Peor aún 3. Si podemos relacionarlos
+							mejor hacer clases específicas con ellos que tengan sentido (Ej: Circle makeCircle(float x, float y, float radius) –> Circle makeCircle(Point p, float radius)).</li>
+					<li>Funciones sin efectos secundarios, que hagan lo que dice su nombre y nada más oculto (Ej: checkPassword que también llama a initializeSession). Normalmente asociado a hacer una sola cosa.</li>
+					<li>Funciones de comando o de consulta, pero nunca combinadas (solo una cosa).</li>
+					<li>Mejor devolver excepciones que códigos de error siempre (no implica capturar las excepciones inmediatamente y el código resulta más simple).</li>
+					<li>Si hay un bloque try/catch mejor simplificarlos extrayendo funciones para cada uno de los bloques (ej: try { hagoAlgoQuePuedeFallar(); } catch (Excepcion ex) { Logger.log(ex.message); }).
+							Si hay try/catch en una función no debería haber nada más, si no seguro se está haciendo más de una cosa.</li>
+					<li>Todas las reglas que se han descrito son muy complicadas de seguir a la primera, la primera vez que se escribe una función es común violar la mayoría de reglas, aunque con trabajo iterativo
+							adicional siempre se puede mejorar.</li>
+				</ul>
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="cuatro" id="cuatro"><h2>4. Comentarios</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Los comentarios solo están justificados cuando no somos capaces de expresarnos con el código. En general, basta con escribir y encapsular todo en una función que se llame como lo que
+				hay en el comentario.
+
+				<ul>
+					<li>Comentarios legales, de derechos de autor</li>
+					<li>Comentarios informativos de lo que devuelve una función, aunque también se pueden eliminar si en el nombre de la función especificamos lo que se devuelve</li>
+					<li>Explicación de la intención, decisión tomada o advertencia</li>
+					<li>Cuando utilizamos librerías de terceros, que no podemos modificar los nombres de funciones</li>
+					<li>Comentarios TODO, aunque no deben ser excusa para dejar código incorrecto</li>
+					<li>Comentarios en API públicas (Javadoc)</li>
+					<li>Comentarios incorrectos: Que dejan dudas en la explicación, redundantes, obligatorios en javadoc, de registro de cambios (para ello está el control de código fuente),
+							código comentado y comentarios sobre cosas que no están en el código adyacente.</li>
+				</ul>
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="cinco" id="cinco"><h2>5. Formato</h2></a>
+			<p class="lead" style="text-align: justify;">
+				El tamaño de los ficheros no debería superar las 200 líneas de media, con un límite máximo en 500.
+				<br /><br />
+				Metáfora del periódico:
+			</p>
+
+			<ul>
+				<li>Una clase comienza con un título descriptivo y una descripción sin detalles que explica el contenido.</li>
+				<li>Después vienen los detalles.</li>
+				<li>El módulo o programa es una compilación de artículos grandes y pequeños.</li>
+				<li>Podemos entender la clase con los métodos superiores sin necesidad de ahondar en los detalles</li>
+				<li>Separación de pensamientos y bloques con líneas en blanco (como separar en párrafos).</li>
+			</ul>
+
+			<p class="lead" style="text-align: justify;">
+				La distancia vertical entre elementos relacionados debe ser mínima, y como consecuencia, evitar separar elementos relacionados en 2 ficheros distintos
+				(razón por la cual no se deben usar variables protected) Las variables se deben declarar lo más cerca posible a su uso. Las variables de clase (de instancia) en la parte superior,
+				ya que se usan en toda la clase.
+				<br /><br />
+				La anchura de las líneas de código, entre 80 y 120 caracteres, no deberíamos hacer scroll horizontal para leer código. Espacios en blanco se usan para separar conceptos que
+				queremos remarcar o que están desconexos con sus antecesores y predecesores. Ej: double determinant(double a, double b, double c) { return b*b – 4*a*c; }
+				<br /><br />
+				Intentar no romper el sangrado aunque la longitud de la función o while sea mínima, lo importante es la claridad. Cualquier equipo debería tener unas reglas convenientemente
+				consensuadas. Es importante seguirlas por parte de todos, el estilo y formato debe ser siempre el mismo ya que el código es compartido.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="seis" id="seis"><h2>6. Objetos y estructura de datos</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Abstracción de los datos, se debe esconder la implementación de los datos de una clase y generar una interfaz (normalmente mediante métodos) para acceder y establecerlos,
+				siempre escondiendo la implementación concreta. Clase (esconde su implementación interna) vs estructura de datos (los expone tal cual)
+				<br /><br />
+				Ley de Demeter: Solo debe invocar funciones de:
+			</p>
+
+			<ul>
+				<li>Sí mismo</li>
+				<li>Variables locales</li>
+				<li>Un argumento</li>
+				<li>Una variable de instancia</li>
+				<li>Y no debe invocar funciones de objetos devueltos por llamadas a otras clases (ej:  a.getX().getY().getValue(); )</li>
+			</ul>
+
+			<p class="lead" style="text-align: justify;">
+				Cuando tengamos esta necesidad hay que crear un método que devuelva el objeto de terceros que necesitamos (a.getXYValue();), o mejor, preguntarnos para qué necesito
+				estos datos y traspasarle quizás la responsabilidad de ejecutar la acción al objeto a usar (a.doSomethingWithXYValue();). La ley de Demeter solo aplica a objetos,
+				no a estructuras de datos simples.
+			</p>
+
+			<ul>
+				<li>DTO = ejemplo de estructuras de datos útiles</li>
+				<li>Active Record = DTO con métodos save y find, siguen sin ser objetos, son meras representaciones de un origen de datos, si queremos añadir métodos con lógica de negocio debemos
+						crear clases aparte con variable de instancia interna de DTO</li>
+			</ul>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="siete" id="siete"><h2>7. Procesa errores</h2></a>
+			<p class="lead" style="text-align: justify;">
+				<ul>
+					<li>No usar códigos de error ya que confunden el flujo de ejecución y obligan al invocador a procesarlos inmediatamente.</li>
+					<li>En los errores incluir información que nos dé contexto de dónde se ha producido el fallo.</li>
+					<li>Al usar APIs de terceros siempre envolver excepciones (patrón facade).</li>
+					<li>Crear clases para los casos especiales en lugar de dejar al código cliente procesar el caso excepcional (patrón caso especial, Fowler).</li>
+					<li>En general no es recomendable devolver null, en su lugar es mejor devolver una excepción o un objeto de caso especial.</li>
+					<li>Tampoco se debe pasar null como parámetro, a no ser que una librería de terceros espere un null. Al no haber una forma racional de controlar
+							null para parámetros, evitarlo por convención es la mejor solución posible.</li>
+				</ul>
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="ocho" id="ocho"><h2>8. Límites</h2></a>
+			<p class="lead" style="text-align: justify;">
+				No es conveniente utilizar clases genéricas del sistema como valores de retorno de una de nuestras API. Normalmente tienen un exceso de funcionalidad que nuestro cliente
+				no necesitará. Además, si la clase genérica cambia (poco probable pero no imposible), tendremos que cambiar el código de todos los clientes. Es mejor encapsular la implementación
+				con la clase genérica en una clase propia que será la que usen los clientes.
+				<br /><br />
+				Si usamos código de terceros, generar unit tests de sus interfaces para comprobar que entendemos cómo funciona y se comporta como esperamos. Además, esto nos sirve para
+				comprobar si nuevas versiones mantienen compatibilidad con lo que usamos de esa librería.
+				<br /><br />
+				Para usar cualquier librería de terceros usar el patrón Adapter (además permitirá comenzar la implementación sin tener aún el sistema con un FakeAdapter y hacer unit tests).
+				Todo esto va enfocado a tener el mínimo de puntos a tocar si se produce algún cambio en el límite.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="nueve" id="nueve"><h2>9. Pruebas unitarias</h2></a>
+			<p class="lead" style="text-align: justify;">3 leyes de TDD:</p>
+
+			<ul>
+				<li>No hay que crear código hasta que haya fallado un unit test</li>
+				<li>No hay que crear nunca más de una prueba que falle</li>
+				<li>El código creado debe ser el mínimo para que la prueba pase</li>
+			</ul>
+
+			<p class="lead" style="text-align: justify;">~30 segundos en hacer los 3 pasos aprox. Las pruebas al tener que evolucionar al mismo ritmo que el código, deben ser igualmente mantenibles y respetar las mismas reglas de código limpio.
+				Las pruebas son la clave del desarrollo ágil, permiten hacer cambios sin temor a romper nada que funcione.
+				<br /><br />
+				En las pruebas es todavía más importante la legibilidad que en el código de producción. Evitar métodos muy largos con todos los detalles de implementación, es mejor que se lea
+				claramente la estructura Arrange-Act-Assert de las pruebas escondiendo los detalles en métodos. Es común refactorizar código de unit tests y acabar en una API de pruebas.
+				También es común penalizar el rendimiento a favor de la legibilidad ya que las pruebas nunca se ejecutarán en entorno productivo. Está permitido hacer más de un assert en una prueba,
+				pero sí se debe cumplir que el número de asserts sea mínimo. Lo que sí se debe cumplir siempre es que solo se prueba una cosa en cada test.
+				<br /><br />
+				5 reglas para pruebas limpias: FIRST</p>
+
+				<ul>
+					<li><strong>F</strong>ast</li>
+					<li><strong>I</strong>ndependent, si son dependientes provocarán un fallo en cascada</li>
+					<li><strong>R</strong>epetition, se deben poder repetir en cualquier entorno, incluso sin red</li>
+					<li><strong>S</strong>elf-Validating, o aciertan o fallan</li>
+					<li><strong>T</strong>imely, se hacen antes del código porque si la haces después te dará pereza y acabarás por no probar</li>
+				</ul>
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="diez" id="diez"><h2>10. Clases</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Orden dentro de la clase: Contantes estáticas, variables estáticas, variables de instancia y funciones. De todo ello, primero lo público y después lo privado. El tamaño debe
+				ser reducido, debe tener una única responsabilidad, la que indica su nombre. Nombres a evitar son Manager, Processor, Super ya que denotan muchas responsabilidades. Single
+				Responsibility Principle, una clase debe tener un único motivo para cambiar.
+				<br /><br />
+				Cuando organizamos la complejidad del software, es mejor organizarla en cajones pequeños bien etiquetados que no en cajones de sastre enormes. Cohesión = grado de utilización
+				de las variables de instancia por parte de las funciones. Queremos clases cohesionadas. Cuando se reduce el tamaño de las funciones se aumenta el tamaño de variables de instancia
+				(para no pasarlas como parámetro a las subfunciones) y se pierde cohesión. En ese caso lo mejor es dividir en subclases.
+				<br /><br />
+				Open/Closed Principle = las clases deben estar abiertas a extensión y cerradas a modificación. Los cambios mejor que se hagan extendiendo o introduciendo nuevas clases,
+				no modificando las existentes. Dependency Inversión Principle = las clases dependen de abstracciones, no de detalles concretos –> Imprescindible para unit testing.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="once" id="once"><h2>11. Sistemas</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Metáfora de la ciudad como el sistema, las responsabilidades se separan y una persona no puede controlar absolutamente todo y conocer todos los detalles. Las ciudades
+				además se construyen poco a poco, las carreteras y demás servicios se van ampliando y acomodando a la demanda. Esto en software es todavía más fácil. Separar el proceso de
+				construcción e inicio del uso del sistema o clase. Necesitamos un sitio centralizado donde abordar la construcción y resolver las dependencias. Una estrategia posible es
+				generar todo desde main para después pasárselo a la aplicación (ya que la configuración es un aspecto global va a main).
+				<br /><br />
+				Patrón Factoría Abstracta –> Separar en una clase la responsabilidad de crear un objeto concreto para esconder los detalles de la creación. Inyección de dependencias –> Un objeto
+				no es responsable de instanciar sus dependencias, lo delega a un sistema autorizado (normalmente main o un contenedor autorizado).
+				<br /><br />
+				AOP –> Modularizar aspectos transversales como persistencia, caché, excepciones… (Ejemplos, Spring, AspectJ) Una correcta separación de aspectos y modularidad es esencial para
+				empezar proyectos software en pequeño e ir creciendo a medida que lo necesitemos. Arquitectura óptima = dominios implementados con POJO y conectados y armonizados con aspectos
+				transversales mínimamente invasivos.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="doce" id="doce"><h2>12. Emergencia</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Según Ken Beck un diseño es sencillo cuando:
+			</p>
+
+			<ul>
+				<li>Ejecuta todas las pruebas: Si se puede probar estamos seguros que hace lo que debe. Además, el diseñar muchas pruebas nos fuerza a hacer clases más pequeñas y con menos
+						responsabilidades. Cuantas más pruebas, mejor diseño simple.</li>
+				<li>No contiene duplicados (REFACTORIZAR): Patrón de Template Method es muy usado para eliminar código duplicado.</li>
+				<li>Expresa la intención del programador (REFACTORIZAR)</li>
+				<li>Minimiza el número de clases y métodos (REFACTORIZAR): Es la menos importante de las 4, queremos sistemas simples o por ello con menos clases y métodos, pero no a costa
+						de perder pruebas, aumentar duplicados o perder expresividad.</li>
+			</ul>
+
+			<p class="lead" style="text-align: justify;">
+				En la fase de refactorización es donde realmente aplicamos todos los aspectos vistos de código limpio: aumentar cohesión, dividir clases, modularizar aspectos, elegir nombres
+				adecuados… Es imposible hacer un código limpio a la primera, así que es necesario refactorizar después de que el código funcione, y es necesario hacerlo antes de pasar a la siguiente tarea.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="trece" id="trece"><h2>13. Concurrencia</h2></a>
+			<p class="lead" style="text-align: justify;">
+				El hecho de separar el qué del cuándo en programación concurrente hace que tengamos que tomar precauciones para no tener problemas. Las prácticas a adoptar son:
+			</p>
+
+			<ul>
+				<li>SRP, un único motivo para cambiar en cada clase –> separar el código que controla la concurrencia del código de la aplicación</li>
+				<li>Encapsula datos y protégelos con synchronized cuando se compartan entre procesos</li>
+				<li>Intentar minimizar la compartición de datos entre procesos, los procesos deben ser independientes</li>
+				<li>Utiliza las clases del entorno de desarrollo específicas de concurrencia (ej. Java.util.concurrent)</li>
+			</ul>
+
+			<p class="lead" style="text-align: justify;">
+				Distintos modelos: productor-consumidor, lector-escritor, la cena de los filósofos (condiciones de carrera). Planificar y probar concienzudamente el código de cierre de un proceso,
+				para evitar bloqueos en nuevos procesos.
+			</p>
+		</div>
+
+		<div class="col-lg-12 my-4">
+			<a name="catorce" id="catorce"><h2>14. Refinamiento sucesivo</h2></a>
+			<p class="lead" style="text-align: justify;">
+				Ejemplo de refactoring de una aplicación que parsea args pasados a main de 3 tipos (boolean, string e integer). El refactor consiste en hacer cambios pequeños poco a poco y que
+				en cada paso pequeño pasen todos los tests.
+				<br /><br />
+				Los pasos concretos del refactor:
+
+				<ul>
+					<li>Identificar el código o patrón de código que se repite. En este caso para cada tipo teníamos un parser de schema, un parser del valor y una función getBoolean(), getInteger()…</li>
+					<li>Creamos la clase ArgumentMarshaler como clase base, por ahora la clase no es abstracta ya que para empezar tendrá los métodos de tipo boolean (cambio más pequeño posible)</li>
+					<li>Introducimos instancias de la clase ArgumentMarshaler en lugar de los valores parseados de boolean y hacemos los retoques para que pase el compilador. Todo sigue funcionando.</li>
+					<li>Añadir los métodos de integer y string en ArgumentMarshaler. Aunque sea la clase base lo primero es que el programa siga funcionando y antes de extraer clases heredadas de la clase
+							base necesito toda la lógica en la clase base. Todo el marshaling está ahora en una sola clase, la clase base ArgumentMarshaler.</li>
+					<li>Siguiente paso es pasar el código de boolean a BooleanArgumentMarshaler. Para ello hacemos ArgumentMarshaler clase abstracta y el parsing lo pasamos a funciones abstractas get y set.
+							Cambiamos las instancias de ArgumentMarshaler por BooleanArgumentMarshaler en los casos de boolean.</li>
+					<li>Al pasar a abstracta necesito devolver Object en el método get() y hacer un Cast. Añado el control de la excepción ClassCastException.</li>
+					<li>Repetimos el proceso para integer y string.</li>
+					<li>Nos disponemos a eliminar los mapas de args por tipo, booleanArgs, stringArgs e intArgs. Para ello añado un mapa nuevo para los marshalers.</li>
+					<li>Puedo eliminar parámetros de funciones con este mapa, ya que con el id del arg puedo recuperar del mapa el marshaler</li>
+					<li>Paso parte del código de try catch de los diferentes marshalers de tipo a la clase base para no repetir código. En el marshaler de tipo mantengo la gestión de excepciones
+							propia de cada tipo.</li>
+				</ul>
+			</p>
+		</div>
+	</div>
+</div>
+<!-- End content -->
+
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fa fa-chevron-up"></i></a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="assets/taller.js"></script>
+
+</body>
+</html>

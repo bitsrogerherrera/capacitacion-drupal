@@ -1,0 +1,68 @@
+[
+  {
+    "nameBook": "El amor en los tiempos del cólera",
+    "priceBook": "$48.300",
+    "authorBook": "Gabriel García Márquez",
+    "yearBook": "1985",
+    "informationBook": [
+      {
+        "chapterName": "Capítulo 1: El amor sin sentido",
+        "chapterSheets": 30
+      },
+      {
+        "chapterName": "Capítulo 2: Otro título",
+        "chapterSheets": 16
+      },
+      {
+        "chapterName": "Capítulo 3: El mar y yo",
+        "chapterSheets": 45
+      },
+      {
+        "chapterName": "Capítulo 4: Un asunto sin resolver",
+        "chapterSheets": 26
+      },
+      {
+        "chapterName": "Capítulo 5: El Cantinero viejo",
+        "chapterSheets": 24
+      }
+    ]
+  },
+  {
+    "nameBook": "Memoria de mis putas tristes",
+    "priceBook": "$51.250",
+    "authorBook": "Gabriel García Márquez",
+    "yearBook": "2004"
+  },
+  {
+    "nameBook": "Doce cuentos peregrinos",
+    "priceBook": "$40.100",
+    "authorBook": "Gabriel García Márquez",
+    "yearBook": "1992",
+    "informationBook": [
+      {
+        "chapterName": "Capítulo 1: El hada y el burro",
+        "chapterSheets": 32
+      },
+      {
+        "chapterName": "Capítulo 2: Gaspar el mar turbio",
+        "chapterSheets": 33
+      },
+      {
+        "chapterName": "Capítulo 3: Natasha, una espía",
+        "chapterSheets": 35
+      },
+      {
+        "chapterName": "Capítulo 4: El cielo",
+        "chapterSheets": 35
+      },
+      {
+        "chapterName": "Capítulo 5: La lucha entre luz y la oscuridad",
+        "chapterSheets": 35
+      },
+      {
+        "chapterName": "Capítulo 6: Roar",
+        "chapterSheets": 35
+      }
+    ]
+  }
+]
