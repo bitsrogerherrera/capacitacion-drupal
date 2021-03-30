@@ -1,1 +1,98 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Clean Code</title>
+</head>
+<body>
+    <div class="main-container">
+        <h1>Clean Code</h1>
+        <p>
+            Esta página se encuentra basada en el resumen realizado por <strong>Samuel Casanova</strong> y que se encuentra disponible en 
+            <a href="https://samuelcasanova.com/2016/09/resumen-clean-code/" target="_blank">este enlace</a>.
+        </p>
+        <p>
+            <strong>El código limpio</strong> (clean code), no es algo recomendado o deseable, es <strong>algo vital para las compañías y los programadores.</strong>
+            La razón es que cada vez que alguien escribe código enmarañado y sin pruebas unitarias (código no limpio), otros tantos
+            programadores pierden mucho tiempo intentando comprenderlo. Incluso el propio creador de un código no limpio si lo lee a
+            los 6 meses será incapaz de comprenderlo y por tanto de evolucionarlo. <cite>Samuel Casanova</cite>
+        </p>
+        <h2>Resumen</h2>
+        <p>
+            La realización de un código limpio es <strong>100% responsabilidad del desarrollador</strong> y se debe caracterizar por ser <strong>elegante, eficaz,
+            legible y tener pruebas unitarias.</strong> Para cumplir con estas características, se recomienda:
+        </p>
+        <ul>
+            <li>Nombres con sentido</li>
+            <p>
+                Se deben emplear nombres <strong>intencionados y descriptivos.</strong> Los nombres de las clases no deben ser verbos, para los nombres de los métodos se deben utilizar
+                verbos y los nombres, entre más cortos mejor.
+            </p>
+            <li>Funciones</li>
+            <p>
+                Deben ser cortas (20 líneas aproximadamente) y tener nombres descriptivos (no importa sin son un poco largos). <strong>Sólo deben hacer una cosa.</strong> Evitar más de
+                2 parámetros. Si se emplean parámetros booleanos, se entiende que la función hace dos cosas, en la mayoría de los casos, en mejor tener dos funciones. Evitar devolver
+                códigos de error, mejor emplear excepciones. Si se emplean try/catch, simplificar cada bloque para que se realice el llamado de una única función.
+            </p>
+            <li>Comentarios</li>
+            <p>
+                Los comentarios únicamente están justificados cuando no somos capaces de expresarnos por código. Únicamente son positivos: <strong>Comentarios legales (derechos de autor),
+                Comentarios informativos de lo que devuelve una función, Explicación de la intención, decisión tomada o advertencia, Al momento de usar librerias de terceros que no podemos
+                modificar los nombres de las funciones, Comentarios TODO y Comentarios en APIs publicas.</strong>
+            </p>
+            <li>Formato</li>
+            <p>
+                El tamaño de los ficheros no debe superar las 200 líneas, con un límite máximo de 500.Las variables se deben declarar lo más cercano a su uso, la anchura del código debe
+                estar entre 80 y 120 caracteres, para evitar el scroll horizontal, mantener un buen sangrado, en pro de la claridad.
+            </p>
+            <li>Objetos y estructura de datos</li>
+            <p>
+                Se debe esconder la implementación de los datos de una clase y se deben acceder a estos por medio de una interfaz. Se debe cumplir la <strong>Ley de Demeter</strong>:
+                Solo debe invocar funciones de: 1. Sí mismo, 2. Variables locales, 3. Un argumento y 4. Una variable de instancia. Esta ley solo aplica a objetos.
+            </p>
+            <li>Procesar errores</li>
+            <p>
+                No emplear códigos de error, ya que confunden al invocador. En los errores incluir información que dé contexto del fallo. Al emplear APIs de terceros, siempre emplear
+                excepciones. No es recomendable devolver un null, mejor devolver una excepción o un objeto del caso especial.
+            </p>
+            <li>Límites</li>
+            <p>
+                No es recomendable emplear clases genéricas directamente, es mejor encapsular la implementación en una clase propia heredando la clase genérica. Si se emplea librerias de
+                terceros, generar unit test para comprobar que se entiende como opera y que se comporte como se espera.
+            </p>
+            <li>Pruebas unitarias</li>
+            <p>
+                Aplicar 3 leyes de las TDD: <strong>1. No hay que crear código hasta que haya fallado un unit test, 2. No hay que crear nunca más de una prueba que falle, 3. El código
+                creado debe ser el mínimo para que la prueba pase.</strong> Las pruebas deben ser mantenibles y repetir todas las reglas de código limpio. Además deben cumplir con las
+                reglas <strong>FIRST</strong> (Fast, Independent, Repetition, Self-validation, Timely).
+            </p>
+            <li>Clases</li>
+            <p>
+                Se debe cumplir con un orden dentro de las clases: Constantes estáticas, variables estáticas, variables de instancia y funciones. De todo ello, primero lo publico y
+                después lo privado. El tamaño debe ser reducido. Debe ser coherente, cumplir con el principio Open/Close y el principio Dependency Inversion.
+            </p>
+            <li>Sistemas</li>
+            <p>
+                El código debe ser capaz de construirse poco a poco, centrilizando el código y resolviendo las dependencias. 
+            </p>
+            <li>Emergencia</li>
+            <p>
+                Según <cite>Ken Beck</cite> un diseño sencillo es cuando: Se ejecuta todas las pruebas, No contiene duplicados, Expresa la intención del programador y Miniza el número
+                de clases y métoos.
+            </p>
+            <li>Concurrencia</li>
+            <p>
+                Las practicas a adoptar son: SRP, Encapsular datos y protegerlos con synchronized, Intentar minimizar las compartición de datos entre procesos y Utilizar las clases
+                del entorno de desarrollo.
+            </p>
+            <li>Refinamiento sucesivo</li>
+            <p>
+                Consiste en hacer pequeños cambios de a poco y que en cada pqueño paso, se pasen todas las pruebas.
+            </p>
+        </ul>
+    </div>
+</body>
+</html>
