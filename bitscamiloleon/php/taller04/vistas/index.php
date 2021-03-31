@@ -2,7 +2,7 @@
 ##conexion a la base de datos
 
 include_once '../bd/conexion.php';
-//include '../logica/saveJson.php';
+include '../logica/saveJson.php';
 
 $db1 = Conexion::getInstance();
 $db = $db1->getConnection();
@@ -75,7 +75,7 @@ $db = $db1->getConnection();
                                         <?php echo $count; ?>
                                     </td>
                                     <td>
-                                        <?php echo $item['titulo']; ?>
+                                        <h2><?php echo $item['titulo']; ?></h2>
                                     </td>
                                     <td>
                                         <?php echo $item['fecha']; ?>
@@ -87,7 +87,24 @@ $db = $db1->getConnection();
                                         <?php echo $item['paginas']; ?>
                                     </td>
                                     <td>
-                                        <button class="btn btn-success">Ver contenido</button>
+                                        <div class="row">
+                                        <?php
+                                            $sql_contenido = 'SELECT * FROM contenido WHERE id_libro ='.$item['id'];
+                                                foreach ($db->query($sql_contenido) as $chapter) {
+                                            ?>
+                                                <div class="col-md-3 pt-4 card">
+                                                    <?php
+                                                    echo 'Capitulo: '.$chapter['capitulo'];
+                                                    echo '<br>';
+                                                    echo 'Nombre: '.$chapter['nombre'];
+                                                    echo '<br>';
+                                                    echo 'Paginas: '.$chapter['paginas'];
+                                                    ?>
+                                                </div>
+                                            <?php
+                                                }
+                                            ?>
+                                        </div>
                                     </td>
                                 </tr>
                         <?php
