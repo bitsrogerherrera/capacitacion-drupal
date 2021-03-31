@@ -1,0 +1,59 @@
+{
+    "books": [
+        {
+            "name": "Cien años de soledad",
+            "price": 120000,
+            "author": "Gabriel Garcia Marquez",
+            "year": 1999,
+            "chapters": [
+                {
+                    "pages": 10,
+                    "title": "Capitulo 1"
+                },
+                {
+                    "pages": 20,
+                    "title": "Capitulo 2"
+                },
+                {
+                    "pages": 50,
+                    "title": "Capitulo 3"
+                },
+                {
+                    "pages": 17,
+                    "title": "Capitulo 4"
+                },
+                {
+                    "pages": 45,
+                    "title": "Capitulo 5"
+                }
+            ]
+        },
+        {
+            "name": "El ingenioso hidalgo don Quijote de la Mancha",
+            "price": 220000,
+            "author": "Miguel de Cervantes",
+            "year": 1950,
+            "chapters": [
+                {
+                    "pages": 100,
+                    "title": "Que trata de la condición y ejercicio del famoso hidalgo don Quijote de la Mancha"
+                },
+                {
+                    "pages": 58,
+                    "title": "De lo que le sucedió a nuestro caballero cuando salió de la venta"
+                },
+                {
+                    "pages": 69,
+                    "title": "Donde se prosigue la narración de la desgracia de nuestro caballero"
+                }
+            ]
+        },
+        {
+            "name": "Libro sin capitulos",
+            "price": 220000,
+            "author": "Desconocido",
+            "year": 2021,
+            "chapters": []
+        }
+    ]
+}
