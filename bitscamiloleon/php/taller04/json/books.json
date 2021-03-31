@@ -1,0 +1,37 @@
+[
+    {
+    "Titulo":"Aventuas misticas",
+    "Autor":"carlos leon",
+    "Año":"2021",
+    "Paginas":300,
+    "Contenido":{
+        "0":{"Capitulo" : 1,"Nombre_Capitulo":"introduccion","paginas":50},
+        "1":{"Capitulo" : 2,"Nombre_Capitulo":"caseria","paginas":50},
+        "2":{"Capitulo" : 3,"Nombre_Capitulo":"busqueda interna","paginas":50},
+        "3":{"Capitulo" : 4,"Nombre_Capitulo":"la verdad","paginas":50},
+        "4":{"Capitulo" : 5,"Nombre_Capitulo":"casi al final","paginas":50},
+        "5":{"Capitulo" : 6,"Nombre_Capitulo":"epilogo","paginas":50}
+        }
+    },
+    {
+    "Titulo":"Misterio nocturno",
+    "Autor":"tatiana",
+    "Año":"2020",
+    "Paginas":0,
+    "Contenido":{}
+    },
+    {
+    "Titulo":"La bienvenida",
+    "Autor":"ximena",
+    "Año":"2019",
+    "Paginas":300,
+    "Contenido":{
+        "0":{"Capitulo" : 1,"Nombre_Capitulo":"introduccion","paginas":50},
+        "1":{"Capitulo" : 2,"Nombre_Capitulo":"buscando","paginas":50},
+        "2":{"Capitulo" : 3,"Nombre_Capitulo":"salida","paginas":50},
+        "3":{"Capitulo" : 3,"Nombre_Capitulo":"final esperado","paginas":50},
+        "4":{"Capitulo" : 4,"Nombre_Capitulo":"despues del final","paginas":50},
+        "5":{"Capitulo" : 5,"Nombre_Capitulo":"cierre","paginas":50}
+        }
+    }
+]
