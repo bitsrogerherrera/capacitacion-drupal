@@ -2,7 +2,7 @@
 
 namespace productoMain;
 
- include_once "/home/bitsamericas/Documentos/bitsalbertorodriguez/capacitacion-drupal/taller03/interfaces/productInterface.php";
+require_once "/home/bitsamericas/Documentos/bitsalbertorodriguez/php/taller03/interfaces/productInterface.php";
 
 use producto;
 
