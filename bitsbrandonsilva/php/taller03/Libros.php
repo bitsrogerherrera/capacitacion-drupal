@@ -1,10 +1,10 @@
 <?php
 /**
- * Clase Libros
+ * Clase ReadBook
  */
 
 /**
- * Class Libros
+ * Class ReadBook
  */
 class Libros
 {
@@ -15,7 +15,7 @@ class Libros
     protected array $nameChapter = [];
 
     /**
-     * Libros constructor.
+     * ReadBook constructor.
      */
     public function __construct()
     {
@@ -29,7 +29,7 @@ class Libros
      */
     public function __destruct()
     {
-        print "<br>" . "Libros eliminados.";
+        print "<br>" . "ReadBook eliminados.";
     }
 
     /**
@@ -115,7 +115,7 @@ class Libros
     }
 }
 
-$data = file_get_contents("./Libros.json");
+$data = file_get_contents("./json/Libros.json");
 $libros = json_decode($data, true);
 
 $id_Book = [];
@@ -163,7 +163,7 @@ foreach ($libros as $pagesPerChapter) {
 }
 print "<br><br>";
 
-print "Libros en formato json" . "<br>";
+print "ReadBook en formato json" . "<br>";
 foreach ($libros as $jsonBooks) {
     print json_encode($jsonBooks);
     print "<br><br>";
