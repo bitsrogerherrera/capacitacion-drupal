@@ -1,0 +1,39 @@
+[
+  {
+    "book": {
+      "title": "El Hoobit",
+      "author": "JJ Tolkien",
+      "year": 1786,
+      "sheets": 124,
+      "chapters": [
+        ["Una tertulia inesperada", 10],
+        ["Carnero asado", 40],
+        ["Un breve descanso", 80],
+        ["El pony pisador", 60]
+      ]
+    }
+  },
+  {
+    "book": {
+      "title": "100 naños de soledad",
+      "author": "Gabriel Garcia M",
+      "year": 1995,
+      "sheets": 124,
+      "chapters": [
+        ["La noche", 50],
+        ["El silencio", 30],
+        ["Murmullos", 60],
+        ["Adios", 15]
+      ]
+    }
+  },
+  {
+    "book": {
+      "title": "Una noche en el museo",
+      "author": "Shawn Levy",
+      "year": 2006,
+      "sheets": 124,
+      "chapters": []
+    }
+  }
+]
