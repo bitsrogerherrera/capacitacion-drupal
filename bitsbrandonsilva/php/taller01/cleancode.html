@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Code</title>
+</head>
+<body>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Nombres con sentido:</h1>
+    <p style="color: white;">
+        Todos los nombres deben ser intencionados y descriptivos.
+        Evita abreviaciones, prefijos, usar secuencias de números 
+        en variables y las palabras redundantes (the-, a-, -object, -info, -data).
+        Usa nombres que se puedan buscar (evita variables a, e, l… usar i, j, k solo 
+        para bucles cuyo contexto sea muy acotado). <br>
+        Clases / variables / metodos
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Funciones:</h1>
+    <p style="color: white;">
+        Deben ser reducidas (~20 líneas) y con nombres descriptivos (no importan si son un poco largos).
+        Debemos evitar el anidamiento excesivo (~complejidad ciclomática).
+        Solo deben hacer una cosa. Para adivinar si una función hace más de una cosa intentamos 
+        describirla en una frase: “PARA (nombredefunción) […]”. Ej: “Para RenderPageWithSetup 
+        comprobamos si la página es de prueba y en caso afirmativo añadimos configuración y detalles. <br>
+
+        Evitar instrucciones switch en funciones escondiéndolas 
+        en clases abstractas (patrón Factory+strategy).
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Comentarios:</h1>
+    <p style="color: white;">
+        Los comentarios solo están justificados cuando no somos capaces de expresarnos con el código. 
+        En general, basta con escribir y encapsular todo en una función que se llame 
+        como lo que hay en el comentario.
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Formato:</h1>
+    <p style="color: white;">
+        El tamaño de los ficheros no debería superar las 200 líneas de media,
+        con un límite máximo en 500.
+
+        La distancia vertical entre elementos relacionados debe ser mínima,
+        y como consecuencia, evitar separar elementos relacionados en 2 ficheros distintos
+        (razón por la cual no se deben usar variables protected)
+
+        Las variables se deben declarar lo más cerca posible a su uso. Las variables de clase
+        (de instancia) en la parte superior, ya que se usan en toda la clase.
+
+        La anchura de las líneas de código, entre 80 y 120 caracteres, no deberíamos hacer scroll
+        horizontal para leer código.
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Objetos y estructuras de datos:</h1>
+    <p style="color: white;">
+        Abstracción de los datos, se debe esconder la implementación de los datos de una clase
+        y generar una interfaz (normalmente mediante métodos) para acceder y establecerlos,
+        siempre escondiendo la implementación concreta.
+
+        DTO = ejemplo de estructuras de datos útiles
+
+        Active Record = DTO con métodos save y find, siguen sin ser objetos, son meras 
+        representaciones de un origen de datos, si queremos añadir métodos con lógica 
+        de negocio debemos crear clases aparte con variable de instancia interna de DTO
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Procesar errores</h1>
+    <p style="color: white;">
+        No usar códigos de error ya que confunden el flujo de ejecución y obligan al invocador a 
+        procesarlos inmediatamente.
+
+        En los errores incluir información que nos dé contexto de dónde se ha producido el fallo.
+
+        Al usar APIs de terceros siempre envolver excepciones (patrón facade).
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Pruebas unitarias</h1>
+    <p style="color: white;">
+        3 leyes de TDD: <br>
+
+            * No hay que crear código hasta que haya fallado un unit test <br>
+            * No hay que crear nunca más de una prueba que falle <br>
+            * El código creado debe ser el mínimo para que la prueba pase <br>
+            ~30 segundos en hacer los 3 pasos aprox. <br>
+
+        Las pruebas al tener que evolucionar al mismo ritmo que el código, deben ser igualmente
+        mantenibles y respetar las mismas reglas de código limpio. <br>
+
+        Las pruebas son la clave del desarrollo ágil, permiten hacer cambios sin temor a romper 
+        nada que funcione. <br>
+
+        5 reglas para pruebas limpias: <br>
+        
+            FIRST <br>
+
+            Fast <br>
+            Independent, si son dependientes provocarán un fallo en cascada <br>
+            Repetition, se deben poder repetir en cualquier entorno, incluso sin red <br>
+            Self-Validating, o aciertan o fallan <br>
+            Timely, se hacen antes del código porque si la haces después te dará pereza y acabarás por no probar <br>
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Clases:</h1>
+    <p style="color: white;">
+        Orden dentro de la clase: Contantes estáticas, variables estáticas, variables de instancia
+        y funciones. De todo ello, primero lo público y después lo privado. <br>
+
+        El tamaño debe ser reducido, debe tener una única responsabilidad, la que indica su nombre.
+        Nombres a evitar son Manager, Processor, Super ya que denotan muchas responsabilidades. <br>
+
+        Single Responsibility Principle, una clase debe tener un único motivo para cambiar.
+    </p>
+    </div>
+    <hr>
+
+    <div style="background-color:black;">
+    <h1 style="color: white;">Concurrencia:</h1>
+    <p style="color: white;">
+        El hecho de separar el qué del cuándo en programación concurrente hace que 
+        tengamos que tomar precauciones para no tener problemas. <br>
+    </p>
+    </div>
+    <hr>
+</body>
+</html>

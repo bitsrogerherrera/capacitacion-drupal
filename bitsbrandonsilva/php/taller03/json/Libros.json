@@ -1,0 +1,40 @@
+[
+  {
+    "id_book" : 1,
+    "nameBook" : "Narraciones Extraordinarias",
+    "numChapter" : {
+      "ind_libro" : [3, 10, 20]
+    },
+    "nameChapter" : {
+      "namCap": ["El cuervo", "El Pozo Y El Pendulo", "Corazon Delator"]
+    }
+  },
+  {
+    "id_book" : 2,
+    "nameBook" : "Afrodita",
+    "numChapter" : {
+      "ind_libro" : [8, 15, 25]
+    },
+    "nameChapter" : {
+      "namCap" : ["Khrysis", "En El Muelle De Alejadria", "Demetrios"]
+    }
+  },
+  {
+    "id_book" : 3,
+    "nameBook" : "",
+    "numChapter" : 0,
+    "nameChapter" : {
+      "namCap": []
+    }
+  },
+  {
+    "id_book" : 4,
+    "nameBook" : "El fantasma de Canterville",
+    "numChapter" : {
+      "ind_libro" : [ 9, 20, 27]
+    },
+    "nameChapter" : {
+      "namCap" : ["Capitulo I", "Capitulo II", "Capitulo III"]
+    }
+  }
+]
