@@ -53,7 +53,7 @@ class Producto
     }
 }
 
-$producto1 = new Producto("Los cien años de Lenni y Margot", 100);
-$producto1->DescripcionLibro();
+$producto = new Producto("Los cien años de Lenni y Margot", 100);
+$producto->DescripcionLibro();
 
 

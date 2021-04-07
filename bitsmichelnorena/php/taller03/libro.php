@@ -119,9 +119,9 @@ class Libro extends Producto
     }
 }
 
-$libro1 = new Libro("Los cien años de Lenni y Margot", 5, "Marianne Cronin", 2021);
+/*$libro1 = new Libro("Los cien años de Lenni y Margot", 5, "Marianne Cronin", 2021);
 $libro1->DescripcionLibro();
 $libro1->addCapitulo("capitulo 1", 39);
 $libro1->getCapitulos();
 $libro1->getNombreCapitulo(2);
-$libro1->PromedioHojasCapitulo();
+$libro1->PromedioHojasCapitulo();*/
