@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Cien años de soledad",
+        "price":"21700",
+        "author":"Gabriel García Márquez",
+        "year":"2015",
+        "sheets":"271"
+
+    },
+    {
+        "name":"El tambor de hojalata",
+        "price":"76905",
+        "author":"Gunter Grass",
+        "year":"2016",
+        "sheets":"680",
+        "index":["Inicio","Meseta","Desenlace","Final","Epílogo"]
+    },
+    {
+        "name":"Robinson Crusoe",
+        "price":"25554",
+        "author":"Daniel Defoe",
+        "year":"2008",
+        "sheets":"336",
+        "index":["Cap 1","Cap 2", "Cap 3", "Cap 4", "Cap 5","Cap 6", "Cap 7", "Cap 8", "Cap 9"]
+    }
+]
