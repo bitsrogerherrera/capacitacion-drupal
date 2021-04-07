@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Libro 1",
+      "price" : "20000",
+      "author" : "Autor 1",
+      "year" : "2020",
+      "sheets" : "1200",
+      "index" : ["capitulo1","capitulo2","capitulo3","capitulo4","capitulo5","capitulo6","capitulo7"]
+    },
+    {
+      "name": "Libro 2",
+      "price" : "10000",
+      "author" : "Autor 2",
+      "year" : "2019",
+      "sheets" : "1000",
+      "index" : ["capi1","capi2","capi3","capi4","capi5"]
+    },
+    {
+      "name": "Libro 3 ",
+      "price" : "25000",
+      "author" : "Autor 3",
+      "year" : "2021",
+      "sheets" : "2000",
+      "index" : ["capitulo 1","capitulo 2","capitulo 3","capitulo 4","capitulo 5","capitulo 6","capitulo 7","capitulo 8","capitulo 9","capitulo 10"]
+    },
+    {
+      "name": "Libro 4",
+      "price" : "22000",
+      "author" : "Autor 4",
+      "year" : "2021",
+      "sheets" : "500"
+    }
+]
